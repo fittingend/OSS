@@ -1,7 +1,7 @@
 #pragma once
 
 #include <autoware_planning_msgs/msg/lanelet_route.hpp>
-#include <autoware_auto_mapping_msgs/msg/lanelet_map_bin.hpp>
+#include <autoware_map_msgs/msg/lanelet_map_bin.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 
 #include <autoware/route_handler/route_handler.hpp>
@@ -22,7 +22,7 @@ namespace autoware::mission_planner_universe::lanelet2
 using LaneletRoute  = autoware_planning_msgs::msg::LaneletRoute;
 using RouteSections = decltype(LaneletRoute::segments);
 using RoutePoints   = std::vector<geometry_msgs::msg::Pose>;
-using LaneletMapBin = autoware_auto_mapping_msgs::msg::LaneletMapBin;
+using LaneletMapBin = autoware_map_msgs::msg::LaneletMapBin;
 
 using Polygon2d    = autoware::universe_utils::Polygon2d;
 using MultiPolygon2d = autoware::universe_utils::MultiPolygon2d;

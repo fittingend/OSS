@@ -122,10 +122,13 @@ void DefaultPlanner::clearRoute()
   core_->clearRoute();
 }
 
-MarkerArray DefaultPlanner::visualize(const RoutePoints & points)
+MarkerArray DefaultPlanner::visualize(const LaneletRoute & route) const
 {
-  // 간단히 goal footprint marker 만 반환 (RViz 디버그용)
-  return makeGoalFootprintMarkers(points);
+  (void)route;  // unused-parameter 경고 억제
+
+  MarkerArray markers;
+  // TODO: LaneletRoute -> RoutePoints 변환해서 makeGoalFootprintMarkers 재사용할 것
+  return markers;
 }
 
 MarkerArray DefaultPlanner::makeGoalFootprintMarkers(const RoutePoints & points)

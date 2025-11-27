@@ -2,9 +2,9 @@
 #pragma once
 
 #include "default_planner_core.hpp"         // DefaultPlannerCore
-#include "mission_planner_core.hpp"         // PlannerPlugin, RoutePoints, LaneletRoute (환경에 맞게 조정)
+#include <autoware/mission_planner_universe/mission_planner_plugin.hpp>
 
-#include <autoware_auto_mapping_msgs/msg/lanelet_map_bin.hpp>
+#include <autoware_map_msgs/msg/lanelet_map_bin.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
 
 #include <rclcpp/rclcpp.hpp>
@@ -12,7 +12,7 @@
 namespace autoware::mission_planner_universe::lanelet2
 {
 
-using autoware_auto_mapping_msgs::msg::LaneletMapBin;
+using autoware_map_msgs::msg::LaneletMapBin;
 using visualization_msgs::msg::MarkerArray;
 
 /**
@@ -49,7 +49,7 @@ public:
   void clearRoute() override;
 
   /// 시각화용 MarkerArray (간단 버전)
-  MarkerArray visualize(const RoutePoints & points) override;
+  MarkerArray visualize(const LaneletRoute & route) const override;
 
 private:
   // ROS 노드 포인터 (소유권 없음)
